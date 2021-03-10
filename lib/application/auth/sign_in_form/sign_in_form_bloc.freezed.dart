@@ -743,17 +743,17 @@ class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
   _SignInFormState call(
-      EmailAddress emailAddress,
-      Password password,
-      bool showErrorMessages,
-      bool isSubmitting,
-      Either<AuthFailure, Unit>? authFailureOrSuccess) {
+      {required EmailAddress emailAddress,
+      required Password password,
+      required bool showErrorMessages,
+      required bool isSubmitting,
+      required Either<AuthFailure, Unit>? authFailureOrSuccess}) {
     return _SignInFormState(
-      emailAddress,
-      password,
-      showErrorMessages,
-      isSubmitting,
-      authFailureOrSuccess,
+      emailAddress: emailAddress,
+      password: password,
+      showErrorMessages: showErrorMessages,
+      isSubmitting: isSubmitting,
+      authFailureOrSuccess: authFailureOrSuccess,
     );
   }
 }
@@ -865,23 +865,23 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object? authFailureOrSuccess = freezed,
   }) {
     return _then(_SignInFormState(
-      emailAddress == freezed
+      emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      password == freezed
+      password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessages == freezed
+      showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting == freezed
+      isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccess == freezed
+      authFailureOrSuccess: authFailureOrSuccess == freezed
           ? _value.authFailureOrSuccess
           : authFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Either<AuthFailure, Unit>?,
@@ -893,8 +893,12 @@ class __$SignInFormStateCopyWithImpl<$Res>
 class _$_SignInFormState
     with DiagnosticableTreeMixin
     implements _SignInFormState {
-  const _$_SignInFormState(this.emailAddress, this.password,
-      this.showErrorMessages, this.isSubmitting, this.authFailureOrSuccess);
+  const _$_SignInFormState(
+      {required this.emailAddress,
+      required this.password,
+      required this.showErrorMessages,
+      required this.isSubmitting,
+      required this.authFailureOrSuccess});
 
   @override
   final EmailAddress emailAddress;
@@ -962,11 +966,12 @@ class _$_SignInFormState
 
 abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
-      EmailAddress emailAddress,
-      Password password,
-      bool showErrorMessages,
-      bool isSubmitting,
-      Either<AuthFailure, Unit>? authFailureOrSuccess) = _$_SignInFormState;
+          {required EmailAddress emailAddress,
+          required Password password,
+          required bool showErrorMessages,
+          required bool isSubmitting,
+          required Either<AuthFailure, Unit>? authFailureOrSuccess}) =
+      _$_SignInFormState;
 
   @override
   EmailAddress get emailAddress => throw _privateConstructorUsedError;

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ddd_firebase/injection.dart';
+import 'package:injectable/injectable.dart';
 
 void main() {
+  configureInjection(Environment.prod);
   runApp(MyApp());
 }
 
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: (Text("Hello World")),
+            child: Text("Hello World"),
           ),
         ),
       ),

@@ -7,12 +7,14 @@ import 'package:flutter_ddd_firebase/domain/auth/auth_failure.dart';
 import 'package:flutter_ddd_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_ddd_firebase/domain/auth/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
 
+@Injectable()
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
 
@@ -36,12 +38,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         );
       },
       registerWithEmailAndPasswordPressed: (e) async* {
-        yield* this._performActionOnAuthFacadeWithEmailAndPassword(
+        yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authFacade.registerWithEmailAndPassword,
         );
       },
       signInWithEmailAndPasswordPressed: (e) async* {
-        yield* this._performActionOnAuthFacadeWithEmailAndPassword(
+        yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authFacade.signInWithEmailAndPassword,
         );
       },
@@ -50,7 +52,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           isSubmitting: true,
           authFailureOrSuccess: null,
         );
-        final result = await this._authFacade.signInWithGoogle();
+        final result = await _authFacade.signInWithGoogle();
         yield state.copyWith(
           isSubmitting: true,
           authFailureOrSuccess: result,
