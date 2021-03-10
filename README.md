@@ -18,3 +18,7 @@
 ### Lecture 04
   1. 강의에서는 bloc extension으로 생성되는 코드와 강의에서 사용하는 코드가 달라서 수정하는 부분이 있지만, 최근 버전의 extension은 reco coder 에서 진행하는 코드와 동일한 패턴의 코드임
   2. sign_in_form_state 에서 authFailureOrSuccess를 Option 타입으로 선언하지만, null-safety를 활용하면, `Either<AuthFailure, Unit>? authFailureOrSuccess,`로 표현 가능함.
+
+### Lecture 09
+  1. 강의에서 만드는 User와 FirebaseAuth의 User가 겹친다. 앱에서 사용하는 유저의 클래스명 변경 필요.
+  2. currentUser 가 Future 형태가 아님. 다른 메소드 사용 필요
