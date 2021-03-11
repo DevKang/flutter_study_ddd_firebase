@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   another_flushbar: ^1.10.14
+  auto_route: ^1.0.0-beta.10
   bloc: ^7.0.0-nullsafety.3 
   cupertino_icons: ^1.0.2
   dartz: ^0.10.0-nullsafety.1
@@ -38,6 +39,7 @@ dependencies:
 
 
 dev_dependencies:
+  auto_route_generator: ^1.0.0-beta.10
   build_runner: ^1.11.5
   flutter_test:
     sdk: flutter
