@@ -49,7 +49,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
@@ -87,8 +87,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<void> signOut() => Future.wait([
-        _firebaseAuth.signOut(),
-        _googleSignIn.signOut(),
-      ]);
+  Future<void> signOut() => Future.wait(
+        [
+          _firebaseAuth.signOut(),
+          _googleSignIn.signOut(),
+        ],
+      );
 }

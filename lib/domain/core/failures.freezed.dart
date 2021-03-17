@@ -16,15 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
-  InvalidEmail<T> invalidEmail<T>(String failedValue) {
+  InvalidEmail<T> invalidEmail<T>({required String failedValue}) {
     return InvalidEmail<T>(
-      failedValue,
+      failedValue: failedValue,
     );
   }
 
-  ShortPassword<T> shortPassword<T>(String failedValue) {
+  ShortPassword<T> shortPassword<T>({required String failedValue}) {
     return ShortPassword<T>(
-      failedValue,
+      failedValue: failedValue,
     );
   }
 }
@@ -124,7 +124,7 @@ class _$InvalidEmailCopyWithImpl<T, $Res>
     Object? failedValue = freezed,
   }) {
     return _then(InvalidEmail<T>(
-      failedValue == freezed
+      failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,7 +136,7 @@ class _$InvalidEmailCopyWithImpl<T, $Res>
 class _$InvalidEmail<T>
     with DiagnosticableTreeMixin
     implements InvalidEmail<T> {
-  const _$InvalidEmail(this.failedValue);
+  const _$InvalidEmail({required this.failedValue});
 
   @override
   final String failedValue;
@@ -218,7 +218,7 @@ class _$InvalidEmail<T>
 }
 
 abstract class InvalidEmail<T> implements ValueFailure<T> {
-  const factory InvalidEmail(String failedValue) = _$InvalidEmail<T>;
+  const factory InvalidEmail({required String failedValue}) = _$InvalidEmail<T>;
 
   @override
   String get failedValue => throw _privateConstructorUsedError;
@@ -254,7 +254,7 @@ class _$ShortPasswordCopyWithImpl<T, $Res>
     Object? failedValue = freezed,
   }) {
     return _then(ShortPassword<T>(
-      failedValue == freezed
+      failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
               as String,
@@ -266,7 +266,7 @@ class _$ShortPasswordCopyWithImpl<T, $Res>
 class _$ShortPassword<T>
     with DiagnosticableTreeMixin
     implements ShortPassword<T> {
-  const _$ShortPassword(this.failedValue);
+  const _$ShortPassword({required this.failedValue});
 
   @override
   final String failedValue;
@@ -348,7 +348,8 @@ class _$ShortPassword<T>
 }
 
 abstract class ShortPassword<T> implements ValueFailure<T> {
-  const factory ShortPassword(String failedValue) = _$ShortPassword<T>;
+  const factory ShortPassword({required String failedValue}) =
+      _$ShortPassword<T>;
 
   @override
   String get failedValue => throw _privateConstructorUsedError;

@@ -1,10 +1,22 @@
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_ddd_firebase/presentation/sign_in/sign_in_page.dart';
+import 'package:fluro/fluro.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_ddd_firebase/presentation/routes/route_handlers.dart';
 
-@CupertinoAutoRouter(routes: <AutoRoute>[
-  CupertinoRoute(
-    page: SignInPage,
-  )
-])
+class Routes {
+  static String signIn = "/signin";
+
+  static void configureRoutes(FluroRouter router) {
+    router.notFoundHandler = Handler(handlerFunc: (
+      BuildContext? context,
+      Map<String, List<String>> params,
+    ) {
+      return const Center(
+        child: Text("Not Found~!"),
+      );
+    });
+    router.define("/", handler: splashRouteHandler);
+    router.define("/signin", handler: signInRouteHandler);
+  }
+}
+
 class $AppRouter {}
