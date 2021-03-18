@@ -84,9 +84,6 @@ abstract class TodoItemDto implements _$TodoItemDto {
     );
   }
 
-  factory TodoItemDto.fromJson(Map<String, dynamic> json) =>
-      _$TodoItemDtoFromJson(json);
-
   TodoItem toDomain() {
     return TodoItem(
       id: UniqueId.fromUniqueString(id),
@@ -94,4 +91,7 @@ abstract class TodoItemDto implements _$TodoItemDto {
       done: done,
     );
   }
+
+  factory TodoItemDto.fromJson(Map<String, dynamic> json) =>
+      _$TodoItemDtoFromJson(json);
 }
