@@ -6,12 +6,12 @@ import 'package:flutter_ddd_firebase/injection.dart';
 extension FirestoreX on FirebaseFirestore {
   Future<DocumentReference> userDocument() async {
     final user = await getIt<IAuthFacade>().getSignedUser();
-    if (user != null) {
+    if (user == null) {
       throw NotAuthenticatedError();
     }
     return FirebaseFirestore.instance
         .collection('users')
-        .doc(user!.id.getOrCrash());
+        .doc(user.id.getOrCrash());
   }
 }
 
