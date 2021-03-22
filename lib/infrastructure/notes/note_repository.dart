@@ -30,9 +30,7 @@ class NoteRepository implements INoteRepository {
           ),
         )
         .onErrorReturnWith((e) {
-      if (e is PlatformException &&
-          e.message != null &&
-          e.message!.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const NoteFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
