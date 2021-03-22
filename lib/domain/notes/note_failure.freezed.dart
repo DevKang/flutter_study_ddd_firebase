@@ -24,8 +24,8 @@ class _$NoteFailureTearOff {
     return const _InsufficientPermission();
   }
 
-  _InsufficientPermission unableToUpdate() {
-    return const _InsufficientPermission();
+  _UnableToUpdate unableToUpdate() {
+    return const _UnableToUpdate();
   }
 }
 
@@ -54,14 +54,14 @@ mixin _$NoteFailure {
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(_InsufficientPermission value) unableToUpdate,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_InsufficientPermission value)? unableToUpdate,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,7 +148,7 @@ class _$_Unexpected implements _Unexpected {
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(_InsufficientPermission value) unableToUpdate,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) {
     return unexpected(this);
   }
@@ -158,7 +158,7 @@ class _$_Unexpected implements _Unexpected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_InsufficientPermission value)? unableToUpdate,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -238,7 +238,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(_InsufficientPermission value) unableToUpdate,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) {
     return insufficientPermission(this);
   }
@@ -248,7 +248,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_InsufficientPermission value)? unableToUpdate,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -263,27 +263,27 @@ abstract class _InsufficientPermission implements NoteFailure {
 }
 
 /// @nodoc
-abstract class _$InsufficientPermissionCopyWith<$Res> {
-  factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
-          $Res Function(_InsufficientPermission) then) =
-      __$InsufficientPermissionCopyWithImpl<$Res>;
+abstract class _$UnableToUpdateCopyWith<$Res> {
+  factory _$UnableToUpdateCopyWith(
+          _UnableToUpdate value, $Res Function(_UnableToUpdate) then) =
+      __$UnableToUpdateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InsufficientPermissionCopyWithImpl<$Res>
+class __$UnableToUpdateCopyWithImpl<$Res>
     extends _$NoteFailureCopyWithImpl<$Res>
-    implements _$InsufficientPermissionCopyWith<$Res> {
-  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission _value,
-      $Res Function(_InsufficientPermission) _then)
-      : super(_value, (v) => _then(v as _InsufficientPermission));
+    implements _$UnableToUpdateCopyWith<$Res> {
+  __$UnableToUpdateCopyWithImpl(
+      _UnableToUpdate _value, $Res Function(_UnableToUpdate) _then)
+      : super(_value, (v) => _then(v as _UnableToUpdate));
 
   @override
-  _InsufficientPermission get _value => super._value as _InsufficientPermission;
+  _UnableToUpdate get _value => super._value as _UnableToUpdate;
 }
 
 /// @nodoc
-class _$_InsufficientPermission implements _InsufficientPermission {
-  const _$_InsufficientPermission();
+class _$_UnableToUpdate implements _UnableToUpdate {
+  const _$_UnableToUpdate();
 
   @override
   String toString() {
@@ -292,7 +292,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InsufficientPermission);
+    return identical(this, other) || (other is _UnableToUpdate);
   }
 
   @override
@@ -328,7 +328,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(_InsufficientPermission value) unableToUpdate,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) {
     return unableToUpdate(this);
   }
@@ -338,7 +338,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_InsufficientPermission value)? unableToUpdate,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) {
     if (unableToUpdate != null) {
@@ -348,6 +348,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }
 }
 
-abstract class _InsufficientPermission implements NoteFailure {
-  const factory _InsufficientPermission() = _$_InsufficientPermission;
+abstract class _UnableToUpdate implements NoteFailure {
+  const factory _UnableToUpdate() = _$_UnableToUpdate;
 }

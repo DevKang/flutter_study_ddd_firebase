@@ -1,8 +1,11 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_firebase/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:flutter_ddd_firebase/application/auth/sign_out/auth_bloc.dart';
+import 'package:flutter_ddd_firebase/presentation/routes/application.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -23,7 +26,11 @@ class SignInForm extends StatelessWidget {
               ).show(context);
             },
             (_) {
-              // TODO: Navigate
+              Application.router?.navigateTo(context, '/notes_overview',
+                  transition: TransitionType.fadeIn, replace: true);
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
             },
           );
         }

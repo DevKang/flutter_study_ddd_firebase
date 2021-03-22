@@ -15,7 +15,16 @@ class Routes {
       );
     });
     router.define("/", handler: splashRouteHandler);
-    router.define("/signin", handler: signInRouteHandler);
+    router.define(
+      "/signin",
+      handler: signInRouteHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+    router.define(
+      '/notes_overview',
+      handler: notesOverviewRouteHandler,
+      transitionType: TransitionType.fadeIn,
+    );
   }
 }
 
