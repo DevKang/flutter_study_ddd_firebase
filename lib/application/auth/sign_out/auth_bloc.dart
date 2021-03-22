@@ -16,9 +16,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authFacade) : super(const AuthState.initial());
 
   @override
-  AuthState get initialState => const AuthState.initial();
-
-  @override
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
