@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_firebase/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:flutter_ddd_firebase/domain/notes/note.dart';
 import 'package:flutter_ddd_firebase/domain/notes/todo_item.dart';
+import 'package:flutter_ddd_firebase/presentation/routes/application.dart';
 import 'package:kt_dart/kt.dart';
 
 class NoteCard extends StatelessWidget {
@@ -19,7 +20,11 @@ class NoteCard extends StatelessWidget {
       color: note.color.getOrCrash(),
       child: InkWell(
         onTap: () {
-          // TODO: Tap card Navigation
+          Application.router?.navigateTo(
+            context,
+            '/note_form_page',
+            routeSettings: RouteSettings(arguments: note),
+          );
         },
         onLongPress: () =>
             _showDeletionDialog(context, context.read<NoteActorBloc>()),

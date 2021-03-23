@@ -14,7 +14,10 @@ class Routes {
         child: Text("Not Found~!"),
       );
     });
-    router.define("/", handler: splashRouteHandler);
+    router.define(
+      "/",
+      handler: splashRouteHandler,
+    );
     router.define(
       "/signin",
       handler: signInRouteHandler,
@@ -24,6 +27,11 @@ class Routes {
       '/notes_overview',
       handler: notesOverviewRouteHandler,
       transitionType: TransitionType.fadeIn,
+    );
+    router.define(
+      '/note_form_page',
+      handler: noteFormRouteHandler,
+      transitionType: TransitionType.cupertinoFullScreenDialog,
     );
   }
 }

@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ddd_firebase/domain/notes/i_note_repository.dart';
 import 'package:flutter_ddd_firebase/domain/notes/note.dart';
 import 'package:flutter_ddd_firebase/domain/notes/note_failure.dart';
@@ -28,7 +29,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
   ) async* {
     yield* event.map(
       initialized: (e) async* {
-        if (e.initialNote != null) {
+        if (e.initialNote == null) {
           yield state;
         } else {
           yield state.copyWith(
@@ -73,6 +74,11 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
             isSaving: false,
             showErrorMessages: true,
             saveFailureOrSuccess: failureOrSuccess,
+          );
+        } else {
+          yield state.copyWith(
+            isSaving: false,
+            showErrorMessages: true,
           );
         }
       },

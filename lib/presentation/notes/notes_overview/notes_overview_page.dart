@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_firebase/application/auth/sign_out/auth_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_ddd_firebase/application/notes/note_watcher/note_watcher
 import 'package:flutter_ddd_firebase/injection.dart';
 import 'package:flutter_ddd_firebase/presentation/notes/notes_overview/widgets/notes_overview_body.dart';
 import 'package:flutter_ddd_firebase/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
+import 'package:flutter_ddd_firebase/presentation/routes/application.dart';
 
 class NotesOverviewPage extends StatelessWidget {
   @override
@@ -59,7 +61,11 @@ class NotesOverviewPage extends StatelessWidget {
           body: NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // TODO: Navigate to NoteFormPage
+              Application.router?.navigateTo(
+                context,
+                '/note_form_page',
+                routeSettings: const RouteSettings(),
+              );
             },
             child: const Icon(Icons.add),
           ),
