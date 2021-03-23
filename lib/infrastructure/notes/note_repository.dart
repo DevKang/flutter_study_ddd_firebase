@@ -23,13 +23,18 @@ class NoteRepository implements INoteRepository {
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map(
-          (snapshot) => right<NoteFailure, KtList<Note>>(
+      (snapshot) {
+        if (snapshot.metadata.hasPendingWrites) {
+          return right<NoteFailure, KtList<Note>>(emptyList());
+        } else {
+          return right<NoteFailure, KtList<Note>>(
             snapshot.docs
                 .map((doc) => NoteDto.fromFirestore(doc).toDomain())
                 .toImmutableList(),
-          ),
-        )
-        .onErrorReturnWith((e) {
+          );
+        }
+      },
+    ).onErrorReturnWith((e) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const NoteFailure.insufficientPermission());
       } else {
@@ -96,10 +101,10 @@ class NoteRepository implements INoteRepository {
       await userDoc.noteCollection.doc(noteDto.id).update(noteDto.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
-      if ((e.message ?? "").contains("permission-denied")) {
+    } on FirebaseException catch (e) {
+      if ((e.code).contains("permission-denied")) {
         return left(const NoteFailure.insufficientPermission());
-      } else if ((e.message ?? "").contains("not-found")) {
+      } else if (e.code.contains("not-found")) {
         return left(const NoteFailure.unableToUpdate());
       } else {
         return left(const NoteFailure.unexpected());
