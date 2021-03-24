@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "801860337251",
+    "project_id": "note-app-f2060",
+    "storage_bucket": "note-app-f2060.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801860337251:android:45bea2c2f795c016210256",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ddd_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801860337251-k86a1991pls209dg58557ln2aku7c2hn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_QVdx4ebhKSUZM-0IUkjjxGBB7uvhJJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801860337251-k86a1991pls209dg58557ln2aku7c2hn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "801860337251-v1o6jns1k0bnjamf363d186hbfhigg0m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterDddFirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
