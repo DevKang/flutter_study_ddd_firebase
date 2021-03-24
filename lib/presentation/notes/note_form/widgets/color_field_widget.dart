@@ -11,6 +11,7 @@ class ColorField extends StatelessWidget {
     return BlocBuilder<NoteFormBloc, NoteFormState>(
       buildWhen: (p, c) => p.note.color != c.note.color,
       builder: (context, state) {
+        // ignore: sized_box_for_whitespace
         return Container(
           height: 80,
           child: ListView.separated(
@@ -37,6 +38,7 @@ class ColorField extends StatelessWidget {
                           : BorderSide.none,
                     ),
                   ),
+                  // ignore: sized_box_for_whitespace
                   child: Container(
                     width: 50,
                     height: 50,

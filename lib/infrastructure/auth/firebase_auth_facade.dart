@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_ddd_firebase/domain/auth/auth_failure.dart';
 import 'package:flutter_ddd_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_ddd_firebase/domain/auth/user.dart';
@@ -28,7 +27,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {

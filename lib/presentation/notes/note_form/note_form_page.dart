@@ -126,6 +126,7 @@ class NoteFormPageScaffold extends StatelessWidget {
                 : AutovalidateMode.disabled,
             child: SingleChildScrollView(
               child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const BodyField(),
                   const ColorField(),
