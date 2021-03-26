@@ -4,9 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_firebase/application/notes/note_form/note_form_bloc.dart';
 import 'package:flutter_ddd_firebase/domain/notes/note.dart';
 import 'package:flutter_ddd_firebase/injection.dart';
+import 'package:flutter_ddd_firebase/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
+import 'package:flutter_ddd_firebase/presentation/notes/note_form/widgets/add_todo_tile_widget.dart';
 import 'package:flutter_ddd_firebase/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:flutter_ddd_firebase/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:flutter_ddd_firebase/presentation/routes/application.dart';
+import 'package:provider/provider.dart';
 
 class NoteFormPage extends StatelessWidget {
   final Note? editedNote;
@@ -120,17 +123,21 @@ class NoteFormPageScaffold extends StatelessWidget {
       body: BlocBuilder<NoteFormBloc, NoteFormState>(
         buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
         builder: (context, state) {
-          return Form(
-            autovalidateMode: state.showErrorMessages
-                ? AutovalidateMode.always
-                : AutovalidateMode.disabled,
-            child: SingleChildScrollView(
-              child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const BodyField(),
-                  const ColorField(),
-                ],
+          return ChangeNotifierProvider(
+            create: (_) => FormTodos(),
+            child: Form(
+              autovalidateMode: state.showErrorMessages
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              child: SingleChildScrollView(
+                child: Column(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    const BodyField(),
+                    const ColorField(),
+                    const AddTodoTile(),
+                  ],
+                ),
               ),
             ),
           );
