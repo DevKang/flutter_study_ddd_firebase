@@ -21,14 +21,11 @@ class _$NoteDtoTearOff {
   const _$NoteDtoTearOff();
 
   _NoteDto call(
-      {@JsonKey(ignore: true)
-          String? id,
+      {@JsonKey(ignore: true) String? id,
       required String body,
       required int color,
-      @JsonKey(toJson: TodoItemDto.serializeToList)
-          required List<TodoItemDto> todos,
-      @ServerTimestampConverter()
-          required FieldValue serverTimeStamp}) {
+      required List<TodoItemDto> todos,
+      @ServerTimestampConverter() required FieldValue serverTimeStamp}) {
     return _NoteDto(
       id: id,
       body: body,
@@ -52,7 +49,6 @@ mixin _$NoteDto {
   String? get id => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
-  @JsonKey(toJson: TodoItemDto.serializeToList)
   List<TodoItemDto> get todos => throw _privateConstructorUsedError;
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
@@ -70,7 +66,7 @@ abstract class $NoteDtoCopyWith<$Res> {
       {@JsonKey(ignore: true) String? id,
       String body,
       int color,
-      @JsonKey(toJson: TodoItemDto.serializeToList) List<TodoItemDto> todos,
+      List<TodoItemDto> todos,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -124,7 +120,7 @@ abstract class _$NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
       {@JsonKey(ignore: true) String? id,
       String body,
       int color,
-      @JsonKey(toJson: TodoItemDto.serializeToList) List<TodoItemDto> todos,
+      List<TodoItemDto> todos,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -178,7 +174,7 @@ class _$_NoteDto extends _NoteDto {
       {@JsonKey(ignore: true) this.id,
       required this.body,
       required this.color,
-      @JsonKey(toJson: TodoItemDto.serializeToList) required this.todos,
+      required this.todos,
       @ServerTimestampConverter() required this.serverTimeStamp})
       : super._();
 
@@ -193,7 +189,6 @@ class _$_NoteDto extends _NoteDto {
   @override
   final int color;
   @override
-  @JsonKey(toJson: TodoItemDto.serializeToList)
   final List<TodoItemDto> todos;
   @override
   @ServerTimestampConverter()
@@ -243,14 +238,12 @@ class _$_NoteDto extends _NoteDto {
 
 abstract class _NoteDto extends NoteDto {
   const factory _NoteDto(
-      {@JsonKey(ignore: true)
-          String? id,
-      required String body,
-      required int color,
-      @JsonKey(toJson: TodoItemDto.serializeToList)
+          {@JsonKey(ignore: true) String? id,
+          required String body,
+          required int color,
           required List<TodoItemDto> todos,
-      @ServerTimestampConverter()
-          required FieldValue serverTimeStamp}) = _$_NoteDto;
+          @ServerTimestampConverter() required FieldValue serverTimeStamp}) =
+      _$_NoteDto;
   const _NoteDto._() : super._();
 
   factory _NoteDto.fromJson(Map<String, dynamic> json) = _$_NoteDto.fromJson;
@@ -263,7 +256,6 @@ abstract class _NoteDto extends NoteDto {
   @override
   int get color => throw _privateConstructorUsedError;
   @override
-  @JsonKey(toJson: TodoItemDto.serializeToList)
   List<TodoItemDto> get todos => throw _privateConstructorUsedError;
   @override
   @ServerTimestampConverter()

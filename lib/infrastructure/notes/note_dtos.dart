@@ -16,8 +16,7 @@ abstract class NoteDto implements _$NoteDto {
     @JsonKey(ignore: true) String? id,
     required String body,
     required int color,
-    @JsonKey(toJson: TodoItemDto.serializeToList)
-        required List<TodoItemDto> todos,
+    required List<TodoItemDto> todos,
     @ServerTimestampConverter() required FieldValue serverTimeStamp,
   }) = _NoteDto;
 
@@ -95,8 +94,4 @@ abstract class TodoItemDto implements _$TodoItemDto {
 
   factory TodoItemDto.fromJson(Map<String, dynamic> json) =>
       _$TodoItemDtoFromJson(json);
-
-  static List<Map<String, dynamic>> serializeToList(List<TodoItemDto> todos) {
-    return todos.map((e) => e.toJson()).toList();
-  }
 }
